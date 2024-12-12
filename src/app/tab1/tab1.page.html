@@ -13,5 +13,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="container">
+    <form [formGroup]="fg" (ngSubmit)="save();">
+      <ion-item lines="none">
+        <ion-input label="Username" placeholder="joeborg" formControlName="username" value="{{username}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Theme" formControlName="theme">
+          <ion-select-option *ngFor="let t of themes" value="{{t.id}}">{{t.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button type="submit" color="brand">Save</ion-button>
+    </form>
+  </div>
+  
 </ion-content>
